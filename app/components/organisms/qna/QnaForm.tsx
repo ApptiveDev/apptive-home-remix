@@ -72,7 +72,7 @@ const QnaForm = forwardRef<HTMLDivElement, QnaProps>(({ isOpen }, ref) => {
             </Container>
             <Container direction="column" gap="10px" style={{ height:'120px' }}>
               <Container direction='row'>
-                <label htmlFor="content"style={{ fontSize:'17px', fontWeight:'700' }} >상세 문의 내용</label>
+                <label htmlFor="content" style={{ fontSize:'17px', fontWeight:'700' }} >상세 문의 내용</label>
                 <div style={{ color:'#FC4F4F' }}>&nbsp;*</div>
               </Container>
               <div style={{ border:'1px solid #B2B6BB', borderRadius:'15px', flexDirection:'row', padding:'6px 10px', boxSizing:'border-box', width:'100%', height:'100%' }}>
