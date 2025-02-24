@@ -96,8 +96,8 @@ function GallerySection({ id }: { id?: string }) {
               md: { display: 'none' }, // sm 화면 이상에서는 숨김
             }}
           >
-            {cardData.map((card) => (
-              <GalleryCard title={card.title} url={card.url} image={card.image} />
+            {cardData.map((card, index) => (
+              <GalleryCard key={`${card.title}-${index}`} title={card.title} url={card.url} image={card.image} />
             ))}
           </Container>
           <Container
@@ -108,8 +108,9 @@ function GallerySection({ id }: { id?: string }) {
             gap="32px"
           >
             <Container direction="column" gap="60px">
-              {evenIndexCards.map((card) => (
+              {evenIndexCards.map((card, index) => (
                 <GalleryCard
+                  key={`${card.title}-${index}`}
                   title={card.title}
                   url={card.url}
                   image={card.image}
@@ -117,8 +118,9 @@ function GallerySection({ id }: { id?: string }) {
               ))}
             </Container>
             <Container direction="column" gap="32px" padding="230px 0 0 0 ">
-              {oddIndexCards.map((card) => (
+              {oddIndexCards.map((card, index) => (
                 <GalleryCard
+                  key={`${card.title}-${index}`}
                   title={card.title}
                   url={card.url}
                   image={card.image}
