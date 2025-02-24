@@ -1,13 +1,39 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import Page from '@/components/templates/Page';
+import Qna from '@/components/organisms/qna/Qna';
+import HeroSection from '@/components/organisms/main/HeroSection';
+import MainSection from '@/components/organisms/main/MainSection';
+import ActivitySection
+  from '@/components/organisms/main/activity/ActivitySection';
+import GallerySection from '@/components/organisms/gallery/GallerySection';
+import { ClientOnly } from 'remix-utils/client-only';
+import type { MetaFunction } from 'react-router';
 
-export function meta({}: Route.MetaArgs) {
+export const meta: MetaFunction = () => {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: 'Apptive' },
+    { description: '부산대학교 IT 서비스 개발, 출시 동아리 Apptive' },
+    { 'og:title': 'Apptive' },
+    { 'og:description': '부산대학교 IT 서비스 개발, 출시 동아리' },
+    { 'og:image': '/logo.svg' },
+    // { 'og:url': 'https://apptive.club' }
   ];
-}
+};
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <Page>
+      {/*<Qna />*/}
+      <HeroSection id="hero-section" />
+      <ClientOnly>
+        {/* TODO: fallback UI 추가 */}
+        {
+          () => (
+            <MainSection id="main-section" mode="dark" />
+          )
+        }
+      </ClientOnly>
+      <ActivitySection id="activity-section" />
+      <GallerySection id="gallery-section" />
+    </Page>
+  );
 }
