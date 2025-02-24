@@ -7,9 +7,6 @@ const baseStyle = css`
   ::selection {
     background-color: ${colors.light.primary.main}
   }
-  body {
-    font-family: 'Pretendard Variable', sans-serif;
-  }
 
   ::-webkit-scrollbar {
     width: 4px;
