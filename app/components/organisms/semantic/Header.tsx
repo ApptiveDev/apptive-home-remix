@@ -17,7 +17,7 @@ function Header() {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const targetPosition = section.getBoundingClientRect().top + window.scrollY;
+      const targetPosition = section.getBoundingClientRect().top + window.scrollY - 40;
       useSmoothScroll(targetPosition);
     }
   };
@@ -29,7 +29,7 @@ function Header() {
       style={css(baseStyle, scrollHeaderStyle)}
     >
       <Container
-        size={{ width: '100%', height: '80px' }}
+        size={{ width: '100%', height: '60px' }}
         justify="space-between"
         align="center"
         maxWidth="1210px"
