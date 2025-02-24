@@ -36,7 +36,7 @@ function HeroSection({ id }: { id?: string }) {
                       }}
                     >
                       <TextBody.Large weight="bold">
-                        21기 모집 링크 바로가기
+                        22기 모집 링크 바로가기
                       </TextBody.Large>
                     </Button>
                   </>
