@@ -10,6 +10,7 @@ import { type ReactNode, useRef } from 'react';
 import { MAX_CONTENT_WIDTH } from '@styles/sizes';
 import useIntersectionSlideEffect from '@/hooks/useIntersectionSlideEffect';
 import YearlySection from '@components/organisms/main/YearlySection';
+import { css } from '@emotion/react';
 
 interface MainSectionProps {
   id?: string;
@@ -24,16 +25,20 @@ const MainSection = ({ id, mode }: MainSectionProps) => {
   const boyIntroRef = useRef<HTMLDivElement>(null);
   const girlIntroRef = useRef<HTMLDivElement>(null);
 
-
   useIntersectionSlideEffect({ spyRef, targetRef: introTitleRef });
   useIntersectionSlideEffect({ spyRef, targetRef: boyIntroRef, delay: 300 });
   useIntersectionSlideEffect({ spyRef, targetRef: girlIntroRef, delay: 600 });
 
+  const mainContainerStyle = css`
+    background-color: ${colorScheme.background.main};
+    padding: 0 20px;
+    min-height: 1600px;
+  `
+
   return (
     <section id={id}>
       <Container
-        padding="0 35px"
-        style={{ backgroundColor: colorScheme.background.main }}
+        style={mainContainerStyle}
         align="center"
         justify="center"
         direction="column"
@@ -89,7 +94,7 @@ const Section = styled.div`
     }
   `;
 const TextBox = styled.div`
-    margin-top: 80px;
+    margin-top: 60px;
     margin-bottom: 50px;
     display: flex;
     max-width: ${MAX_CONTENT_WIDTH};
