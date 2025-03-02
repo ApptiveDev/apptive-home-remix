@@ -42,7 +42,7 @@ function ActivityCard({ title, order, icon, paragraph }: ActivityCardProps) {
             {title}
           </Paragraph.Large>
           <Paragraph.Small style={{
-            lineHeight: '1.2rem',
+            lineHeight: '1.2',
           }}
           >
             {paragraph}
