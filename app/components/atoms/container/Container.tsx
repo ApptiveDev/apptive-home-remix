@@ -1,6 +1,6 @@
 import { forwardRef, type ReactNode } from 'react';
 import type { CSSObject } from '@emotion/react';
-import type { ResponsiveCSSObjects } from '@/types/styles';
+import type { ResponsiveCSSObject } from '@/types/styles';
 import { serializeResponsiveCss } from '@/utils';
 
 interface ContainerProps {
@@ -13,7 +13,7 @@ interface ContainerProps {
   padding?: string;
   gap?: number | string;
   style?: CSSObject;
-  responsiveStyle?: ResponsiveCSSObjects;
+  responsiveStyle?: ResponsiveCSSObject;
 }
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>((
