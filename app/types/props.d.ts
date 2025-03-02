@@ -1,5 +1,5 @@
 import { HTMLAttributes, ReactNode } from 'react';
-import { FontWeight, ResponsiveCSSObjects } from '@/types/styles';
+import { FontWeight, ResponsiveCSSObject } from '@/types/styles';
 import { ScreenSize } from '@/types/styles';
 import { CSSObject } from '@emotion/react';
 
@@ -21,5 +21,5 @@ export interface GridProps {
   columnGap?: number | string;
   rowGap?: number | string;
   style?: CSSObject;
-  responsiveStyle?: ResponsiveCSSObjects;
+  responsiveStyle?: ResponsiveCSSObject;
 }
