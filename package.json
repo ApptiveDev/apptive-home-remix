@@ -7,7 +7,9 @@
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "vitest",
+    "test:ci": "vitest run"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -35,11 +37,14 @@
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
+    "@vitest/browser": "^3.0.7",
+    "playwright": "^1.50.1",
     "react-router-devtools": "^1.1.0",
     "storybook": "8.5.8",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.7"
   },
   "packageManager": "yarn@4.6.0"
 }
