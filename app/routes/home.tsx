@@ -1,6 +1,5 @@
 import Page from '@/components/templates/Page';
-import Qna from '@/components/organisms/qna/Qna';
-import HeroSection from '@/components/organisms/main/HeroSection';
+import HeroSection from '@/components/organisms/main/hero/HeroSection';
 import MainSection from '@/components/organisms/main/MainSection';
 import ActivitySection
   from '@/components/organisms/main/activity/ActivitySection';
