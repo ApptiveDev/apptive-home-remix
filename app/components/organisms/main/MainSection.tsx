@@ -81,6 +81,19 @@ const MainSection = ({ id, mode }: MainSectionProps) => {
   );
 };
 
+function MainTitleContainer({ children }: { children: ReactNode }) {
+  return (
+    <Container
+      direction="column"
+      gap="20px"
+      maxWidth={MAX_CONTENT_WIDTH}
+      size="full-width"
+    >
+      {children}
+    </Container>
+  );
+}
+
 const Section = styled.div`
     display: flex;
     align-items: center;
@@ -125,17 +138,5 @@ const SectionReversed = styled(Section)`
      flex-direction: column-reverse;
   }
 `;
-function MainTitleContainer({ children }: { children: ReactNode }) {
-  return (
-    <Container
-      direction="column"
-      gap="20px"
-      maxWidth={MAX_CONTENT_WIDTH}
-      size="full-width"
-    >
-      {children}
-    </Container>
-  );
-}
 
 export default MainSection;
