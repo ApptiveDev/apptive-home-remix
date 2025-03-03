@@ -1,6 +1,5 @@
 import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import type { CSSObject } from '@emotion/react';
-import type { ResponsiveCSSObject } from '@/types';
 import { serializeResponsiveCss } from '@/utils';
 
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
