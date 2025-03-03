@@ -1,4 +1,3 @@
-import yearlyContent from '@constants/yearlyContent';
 import Container from '@components/atoms/container/Container';
 import { css } from '@emotion/react';
 import { breakPoints } from '@styles/breakpoints';
@@ -12,6 +11,7 @@ import {
   YearText,
   YearTextBox,
 } from '@components/organisms/main/YearText';
+import yearlyContent from '@components/organisms/main/yearlyContent';
 
 interface YearlySectionProps {
   mode: 'light' | 'dark';
