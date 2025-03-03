@@ -19,7 +19,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "icon",
-    href: "/logo.svg",
+    href: "/favicon.ico",
     type: "image/x-icon"
   }
 ];
