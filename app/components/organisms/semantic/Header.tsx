@@ -13,6 +13,7 @@ function Header() {
     position: fixed;
     transition: all 0.15s ease-in;
     z-index: 1000;
+    font-family: "Pretendard Variable", sans-serif;
   `;
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -42,12 +43,11 @@ function Header() {
           },
         }}
         >
-          <TextBody.Medium weight="bold" style={{ cursor:'pointer' }} onClick={() => scrollToSection('main-section')}>About</TextBody.Medium>
-          <TextBody.Medium weight="bold" style={{ cursor:'pointer' }} onClick={() => scrollToSection('activity-section')}>Activity</TextBody.Medium>
-          <TextBody.Medium weight="bold" style={{ cursor:'pointer' }} onClick={() => scrollToSection('gallery-section')}>Gallery</TextBody.Medium>
+          <TextBody.Medium weight="bold" cssx={{ cursor:'pointer' }} onClick={() => scrollToSection('main-section')}>About</TextBody.Medium>
+          <TextBody.Medium weight="bold" cssx={{ cursor:'pointer' }} onClick={() => scrollToSection('activity-section')}>Activity</TextBody.Medium>
+          <TextBody.Medium weight="bold" cssx={{ cursor:'pointer' }} onClick={() => scrollToSection('gallery-section')}>Gallery</TextBody.Medium>
         </Container>
       </Container>
-
     </Container>
   );
 }
