@@ -5,6 +5,7 @@ import { ClientOnly } from 'remix-utils/client-only';
 import type { MetaFunction } from 'react-router';
 import HeroSection from '@components/organisms/hero/HeroSection';
 import ActivitySection from '@components/organisms/activity/ActivitySection';
+import { colors } from '@styles/colors';
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,7 +23,7 @@ export default function Home() {
     <Page>
       {/*<Qna />*/}
       <HeroSection id="hero-section" />
-      <ClientOnly>
+      <ClientOnly fallback={<div css={{ height: '1600px', backgroundColor: colors.dark.absolute.black }}/>}>
         {/* TODO: fallback UI 추가 */}
         {
           () => (
