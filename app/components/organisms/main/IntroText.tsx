@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 import { colors } from '@/styles/colors';
 import { breakPoints } from '@/styles/breakpoints';
+import type { ReactNode } from 'react';
 
-type TextBoxProps = {
-  children: React.ReactNode;
+interface TextBoxProps {
+  children: ReactNode;
   mode: 'light' | 'dark';
-};
+}
 
 const IntroText = styled.div<TextBoxProps>`
   display: flex;

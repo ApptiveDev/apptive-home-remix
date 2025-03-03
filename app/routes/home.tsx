@@ -1,11 +1,10 @@
 import Page from '@/components/templates/Page';
-import HeroSection from '@/components/organisms/main/hero/HeroSection';
 import MainSection from '@/components/organisms/main/MainSection';
-import ActivitySection
-  from '@/components/organisms/main/activity/ActivitySection';
 import GallerySection from '@/components/organisms/gallery/GallerySection';
 import { ClientOnly } from 'remix-utils/client-only';
 import type { MetaFunction } from 'react-router';
+import HeroSection from '@components/organisms/hero/HeroSection';
+import ActivitySection from '@components/organisms/activity/ActivitySection';
 
 export const meta: MetaFunction = () => {
   return [

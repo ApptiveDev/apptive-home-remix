@@ -1,8 +1,3 @@
-import {
-  ExplainText,
-  YearText,
-  YearTextBox,
-} from '@components/molecules/YearText';
 import yearlyContent from '@constants/yearlyContent';
 import Container from '@components/atoms/container/Container';
 import { css } from '@emotion/react';
@@ -12,6 +7,11 @@ import { colors } from '@styles/colors';
 import { Heading } from '@components/atoms/text/TextFactory';
 import { MAX_CONTENT_WIDTH } from '@styles/sizes';
 import useIntersectionSlideEffect from '@/hooks/useIntersectionSlideEffect';
+import {
+  ExplainText,
+  YearText,
+  YearTextBox,
+} from '@components/organisms/main/YearText';
 
 interface YearlySectionProps {
   mode: 'light' | 'dark';

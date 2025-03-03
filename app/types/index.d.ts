@@ -11,4 +11,4 @@ export interface ResponsiveCSSObject extends CSSObject {
   lg?: CSSObject;
 }
 
-export type ResponsiveColumns = { [key in ScreenSize]: string | number };
+export type ResponsiveColumns = { [key in ScreenSize]?: string | number };

@@ -5,7 +5,7 @@ import Button from '@components/atoms/button/Button';
 import type { ReactNode } from 'react';
 import backgroundImage from '@assets/images/hero-background.webp';
 import usePreloadBackground from '@/hooks/usePreloadBackground';
-import heroStyles from '@/components/organisms/main/hero/hero.module.css';
+import heroStyles from '@/components/organisms/hero/hero.module.css';
 import { getLandingKeyframes } from '@/utils';
 
 function HeroSection({ id }: { id?: string }) {

@@ -1,7 +1,7 @@
-import ActivityCard from '@components/organisms/main/activity/ActivityCard';
 import Grid from '@components/atoms/grid/Grid';
 import useActivityCardImage from '@/hooks/activity/useActivityCardImage';
 import { activities } from '@constants/activities';
+import ActivityCard from '@components/organisms/activity/ActivityCard';
 
 function ActivityCardSection() {
   const getActivityCards = () => {

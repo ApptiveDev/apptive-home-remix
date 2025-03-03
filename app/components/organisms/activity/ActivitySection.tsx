@@ -3,8 +3,9 @@ import { MAX_CONTENT_WIDTH } from '@styles/sizes';
 import { Heading } from '@components/atoms/text/TextFactory';
 import { colors } from '@styles/colors';
 import { type ReactNode } from 'react';
-import ActivityCardSection from '@components/organisms/main/activity/ActivityCardSection';
 import ActivityTimelineSection from './ActivityTimelineSection';
+import ActivityCardSection
+  from '@components/organisms/activity/ActivityCardSection';
 
 function ActivitySection({ id }: { id?: string }) {
   return (

@@ -1,5 +1,4 @@
 import { Heading } from '@/components/atoms/text/TextFactory';
-import IntroText from '@/components/molecules/IntroText';
 import styled from '@emotion/styled';
 import { colors } from '@/styles/colors';
 import { breakPoints } from '@/styles/breakpoints';
@@ -11,6 +10,7 @@ import { MAX_CONTENT_WIDTH } from '@styles/sizes';
 import useIntersectionSlideEffect from '@/hooks/useIntersectionSlideEffect';
 import YearlySection from '@components/organisms/main/YearlySection';
 import { css } from '@emotion/react';
+import IntroText from '@components/organisms/main/IntroText';
 
 interface MainSectionProps {
   id?: string;
