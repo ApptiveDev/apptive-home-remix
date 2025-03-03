@@ -18,6 +18,7 @@ function Text({ children, weight, defaultSize, responsiveSize, as = 'p', color, 
   const cssWeight = convertWeightToCss(weight);
   const textStyle: CSSObject = {
     fontWeight: cssWeight,
+    fontSize: defaultSize,
     color,
   }
 
