@@ -5,14 +5,9 @@ import { defineConfig, type UserConfigExport } from 'vite';
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [reactRouter(), tsconfigPaths()],
+  plugins: [!process.env.VITEST && reactRouter(), tsconfigPaths()],
   test: {
-    browser: {
-      enabled: true,
-      provider: 'playwright',
-      instances: [
-        { browser: 'chromium' },
-      ],
-    },
+    include: ["./app/**/*.test.(ts|tsx)"],
+    environment: 'jsdom',
   },
 } as UserConfigExport);
