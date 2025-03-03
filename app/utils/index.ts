@@ -6,9 +6,7 @@ import {
 } from '@emotion/react';
 import { breakPoints } from '@styles/breakpoints';
 import type {
-  ResponsiveColumns,
   ResponsiveCSSObject,
-  ScreenSize,
 } from '@/types';
 
 export function getLandingKeyframesArray(reverse: boolean = false, fromY: string = '20px') {
@@ -61,24 +59,4 @@ export function serializeResponsiveCss(cssObject?: ResponsiveCSSObject | Seriali
     ret.push(style);
   });
   return css(baseCss, ...ret);
-}
-
-export function serializeResponsiveColumns(responsiveColumns?: ResponsiveColumns): SerializedStyles {
-  if (!responsiveColumns) {
-    return css``;
-  }
-
-  const ret: SerializedStyles[] = [];
-  Object.entries(responsiveColumns).forEach(([sizeKey, columns]) => {
-    const key = sizeKey as ScreenSize;
-    const colCss = typeof columns === 'number' ? `repeat(${columns}, 1fr)` : columns;
-    const style = css`
-      @media (min-width: ${breakPoints[key]}) {
-        grid-template-columns: ${colCss};
-      }
-    `;
-    ret.push(style);
-  });
-
-  return css(ret);
 }

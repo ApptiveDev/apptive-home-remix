@@ -1,10 +1,14 @@
-import { css, type CSSObject } from '@emotion/react';
+import { css, type CSSObject, type SerializedStyles } from '@emotion/react';
 import {
-  serializeResponsiveColumns,
   serializeResponsiveCss,
 } from '@/utils';
 import type { ReactNode } from 'react';
-import type { ResponsiveColumns, ResponsiveCSSObject } from '@/types';
+import type {
+  ResponsiveColumns,
+  ResponsiveCSSObject,
+  ScreenSize,
+} from '@/types';
+import { breakPoints } from '@styles/breakpoints';
 
 export interface GridProps {
   children: ReactNode;
@@ -45,6 +49,26 @@ function Grid({
       {children}
     </div>
   );
+}
+
+function serializeResponsiveColumns(responsiveColumns?: ResponsiveColumns): SerializedStyles {
+  if (!responsiveColumns) {
+    return css``;
+  }
+
+  const ret: SerializedStyles[] = [];
+  Object.entries(responsiveColumns).forEach(([sizeKey, columns]) => {
+    const key = sizeKey as ScreenSize;
+    const colCss = typeof columns === 'number' ? `repeat(${columns}, 1fr)` : columns;
+    const style = css`
+      @media (min-width: ${breakPoints[key]}) {
+        grid-template-columns: ${colCss};
+      }
+    `;
+    ret.push(style);
+  });
+
+  return css(ret);
 }
 
 export default Grid;
