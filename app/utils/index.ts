@@ -9,7 +9,7 @@ import type {
   ResponsiveColumns,
   ResponsiveCSSObject,
   ScreenSize,
-} from '@/types/styles';
+} from '@/types';
 
 export function getLandingKeyframesArray(reverse: boolean = false, fromY: string = '20px') {
   return [
