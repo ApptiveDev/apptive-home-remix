@@ -36,7 +36,7 @@ function YearlySection({ mode }: YearlySectionProps) {
 
   return (
     <>
-      <Container size="full-width" maxWidth={MAX_CONTENT_WIDTH} style={textboxStyle} ref={titleRef}>
+      <Container size="full-width" maxWidth={MAX_CONTENT_WIDTH} cssx={textboxStyle} ref={titleRef}>
         <Heading.XLarge color={colors[mode].text.prominent}>
           Years of Apptive
         </Heading.XLarge>
@@ -100,7 +100,7 @@ const SliderContainer =
       }
     `;
     return (
-    <Container style={containerStyle} ref={ref}>
+    <Container cssx={containerStyle} ref={ref}>
       {children}
     </Container>
     );
@@ -125,7 +125,7 @@ function SliderWrapper({ mode, children }: YearlySectionProps & { children?: Rea
       padding: 0 10px;
     }`;
   return (
-    <Container padding="0 45px" size="full-width" style={containerStyle}>
+    <Container padding="0 45px" size="full-width" cssx={containerStyle}>
       {children}
     </Container>
   );

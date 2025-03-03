@@ -27,11 +27,9 @@ function HeroContainer({ children }: { children: ReactNode }) {
   return (
     <Container
       size={{ width: '100%', height: '600px' }}
-      style={{
+      cssx={{
         backgroundSize: 'cover',
         backgroundImage: `url(${backgroundImage})`,
-      }}
-      responsiveStyle={{
         sm: {
           height: '800px',
         },
@@ -47,7 +45,7 @@ function HeroText() {
   return (
     <>
       <Heading.XSmall
-        style={{
+        cssx={{
           opacity: 0,
           animation: `${getLandingKeyframes(true)} 0.5s ease-in-out forwards 1s`,
         }}
@@ -61,7 +59,7 @@ function HeroText() {
         responsiveSize={{
           sm: '100px',
         }}
-        style={{
+        cssx={{
           opacity: 0,
         }}
         className={heroStyles.heroTitle}
@@ -69,8 +67,8 @@ function HeroText() {
         APPTIVE
       </Text>
       <Button
-        theme="light-outlined"
-        css={{
+        variants="light-outlined"
+        cssx={{
           marginTop: '15px',
           opacity: 0,
           animation: `${getLandingKeyframes()} 0.5s ease-in-out forwards 1s`,

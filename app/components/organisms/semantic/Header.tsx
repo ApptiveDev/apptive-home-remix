@@ -26,7 +26,7 @@ function Header() {
     <Container
       size="full-width"
       justify="center"
-      style={css(baseStyle, scrollHeaderStyle)}
+      cssx={css(baseStyle, scrollHeaderStyle)}
     >
       <Container
         size={{ width: '100%', height: '60px' }}
@@ -36,7 +36,7 @@ function Header() {
         padding="0 20px"
       >
         <ResponsiveLogo />
-        <Container gap="20px" responsiveStyle={{
+        <Container gap="20px" cssx={{
           sm: {
             gap: '49px',
           },

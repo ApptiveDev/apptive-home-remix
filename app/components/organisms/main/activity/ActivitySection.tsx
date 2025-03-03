@@ -10,11 +10,11 @@ function ActivitySection({ id }: { id?: string }) {
   return (
     <section id={id}>
       <Container
-      size="full-width"
-      justify="center"
-      style={{
-        backgroundColor: colors.light.background.darken,
-      }}
+        size="full-width"
+        justify="center"
+        cssx={{
+          backgroundColor: colors.light.background.darken,
+        }}
       >
         <ActivityContainer>
           <Container size="full-width" justify="flex-end">
@@ -43,10 +43,8 @@ function ActivityContainer({ children }: ActivityContainerProps) {
       maxWidth={MAX_CONTENT_WIDTH}
       direction="column"
       padding="20px"
-      style={{
+      cssx={{
         padding: '50px 20px',
-      }}
-      responsiveStyle={{
         lg: { padding: '100px 20px' },
       }}
     >

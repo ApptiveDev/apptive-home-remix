@@ -24,10 +24,10 @@ function ActivityCardSection() {
     <Grid
       columns={1}
       responsiveColumns={{ md: 2 }}
-      style={{
+      cssx={{
         width: '100%',
+        md: { gap: '32px' }
       }}
-      responsiveStyle={{ md: { gap: '32px' } }}
       gap="16px"
     >
       {getActivityCards()}

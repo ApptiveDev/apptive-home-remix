@@ -38,12 +38,12 @@ const MainSection = ({ id, mode }: MainSectionProps) => {
   return (
     <section id={id}>
       <Container
-        style={mainContainerStyle}
+        cssx={mainContainerStyle}
         align="center"
         justify="center"
         direction="column"
       >
-        <TextBox css={{ opacity: 0 }} ref={introTitleRef}>
+        <TextBox css  ={{ opacity: 0 }} ref={introTitleRef}>
           <Heading.XLarge color={colorScheme.text.prominent}>
             What is Apptive?
           </Heading.XLarge>

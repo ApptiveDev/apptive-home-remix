@@ -37,7 +37,7 @@ function Qna() {
     <Container
       size="full-width"
       direction="column"
-      style={{
+      cssx={{
         position: 'fixed',
         bottom: '10px',
         zIndex: 1000,
@@ -52,7 +52,7 @@ function Qna() {
           direction="column"
           padding="50px 20px"
           size="full-width"
-          style={{
+          cssx={{
             bottom: '10px',
             gap: '10px',
             zIndex: 1000,

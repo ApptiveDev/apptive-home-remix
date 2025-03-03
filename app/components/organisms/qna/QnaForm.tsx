@@ -18,7 +18,7 @@ const QnaForm = forwardRef<HTMLDivElement, QnaProps>(({ isOpen }, ref) => {
          }}
          maxWidth='400px'
          direction='column'
-         style={{
+         cssx={{
            backgroundColor: 'white',
            borderRadius: '32px',
            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
@@ -33,7 +33,7 @@ const QnaForm = forwardRef<HTMLDivElement, QnaProps>(({ isOpen }, ref) => {
           direction="column"
           gap="16px"
         >
-          <Container direction='column'  style={{ width:'100%', gap:'5px' }}>
+          <Container direction='column' cssx={{ width:'100%', gap:'5px' }}>
             <div style={{ fontSize:'26px', fontWeight:'700', color:'#FF861A' }}>APPTIVE 문의하기</div>
             <div style={{ fontSize:'11px', color:'#191B1C' }}>동아리 운영진이 성심성의껏 답변해드립니다.</div>
           </Container>

@@ -13,7 +13,7 @@ export const LogoImage: Story = {
   args: {
     src: logo,
     alt: 'logo',
-    responsiveStyle: {
+    cssx: {
       sm: {
         marginTop: '32px',
       },

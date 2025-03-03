@@ -1,5 +1,4 @@
-import type { TextProps } from '@/types/props';
-import Text from '@components/atoms/text/Text';
+import Text, { type TextProps } from '@components/atoms/text/Text';
 
 export function createTextComponent(props: Partial<TextProps>) {
   return function TextComponent(extraProps: TextProps) {

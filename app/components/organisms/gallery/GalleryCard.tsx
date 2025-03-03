@@ -16,7 +16,7 @@ function GalleryCard({ title, image }: GalleryCardProps) {
       size="full-width"
       maxWidth="440px"
       justify="space-between"
-      style={{ boxSizing: 'border-box' }}
+      cssx={{ boxSizing: 'border-box' }}
     >
       <Container
         size="full-width"
@@ -32,7 +32,7 @@ function GalleryCard({ title, image }: GalleryCardProps) {
           <Container
             size={{ width: 'auto', height: '52px' }}
             padding="0 20px"
-            style={{
+            cssx={{
               borderLeft: '2px solid #000',
               fontSize: '22px',
               lineHeight: '26px',
@@ -41,10 +41,10 @@ function GalleryCard({ title, image }: GalleryCardProps) {
           >
             <span dangerouslySetInnerHTML={{ __html: title }} />
           </Container>
-          <Image style={{ width: '18px' }} src={linkIconOrange} alt="link icon" />
+          <Image cssx={{ width: '18px' }} src={linkIconOrange} alt="link icon" />
         </Container>
         <Container
-          style={{
+          cssx={{
             flexGrow: 1,
           }}
         >

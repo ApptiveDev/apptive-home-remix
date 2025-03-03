@@ -15,7 +15,7 @@ const FloatingButton = forwardRef<HTMLButtonElement, FloatingButtonProps>(
       onClick();
     };
     return (
-      <button ref={ref} onClick={handleButtonClick} style={{
+      <button ref={ref} onClick={handleButtonClick} css={{
         display: 'block',
         alignContent: 'center',
         width: '60px',
@@ -29,9 +29,10 @@ const FloatingButton = forwardRef<HTMLButtonElement, FloatingButtonProps>(
         zIndex: 1000,
       }}>
         <Image
-          style={isOpen ?
+          cssx={isOpen ?
             { height: '80%', width: '80%' } :
-            { height: '100%', width: '100%' }}
+            { height: '100%', width: '100%' }
+          }
           src={isOpen ? FormOpen : FormClose}
           alt="button"
         />

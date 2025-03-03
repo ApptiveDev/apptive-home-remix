@@ -92,7 +92,8 @@ function GallerySection({ id }: { id?: string }) {
             align="center"
             gap="40px"
             padding="20px 0"
-            responsiveStyle={{
+            cssx={{
+              display: 'flex',
               md: { display: 'none' }, // sm 화면 이상에서는 숨김
             }}
           >
@@ -101,8 +102,8 @@ function GallerySection({ id }: { id?: string }) {
             ))}
           </Container>
           <Container
-            style={{ display: 'none' }}
-            responsiveStyle={{
+            cssx={{
+              display: 'none',
               md: { display: 'flex' }, // sm 화면 이상에서는 보임
             }}
             gap="32px"
@@ -143,10 +144,8 @@ function GalleryContainer({ children }: ActivityContainerProps) {
       direction="column"
       align="center"
       padding="20px"
-      style={{
+      cssx={{
         padding: '50px 20px',
-      }}
-      responsiveStyle={{
         lg: { padding: '100px 20px' },
       }}
     >

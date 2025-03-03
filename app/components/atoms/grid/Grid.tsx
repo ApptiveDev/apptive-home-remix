@@ -1,6 +1,22 @@
 import { css, type CSSObject } from '@emotion/react';
-import { serializeResponsiveColumns, serializeResponsiveCss } from '@/utils';
-import type { GridProps } from '@/types/props';
+import {
+  serializeResponsiveColumns,
+  serializeResponsiveCss,
+} from '@/utils';
+import type { ReactNode } from 'react';
+import type { ResponsiveColumns, ResponsiveCSSObject } from '@/types';
+
+export interface GridProps {
+  children: ReactNode;
+  columns?: string | number;
+  responsiveColumns?: ResponsiveColumns;
+  rows?: string | number;
+  gap?: number | string;
+  columnGap?: number | string;
+
+  rowGap?: number | string;
+  cssx?: ResponsiveCSSObject;
+}
 
 function Grid({
   children,
@@ -10,8 +26,7 @@ function Grid({
   gap = 0,
   columnGap,
   rowGap,
-  style,
-  responsiveStyle,
+  cssx,
 }: GridProps) {
   const gridStyle: CSSObject = {
     display: 'grid',
@@ -20,13 +35,12 @@ function Grid({
     gap,
     columnGap,
     rowGap,
-    ...style,
   };
 
   return (
     <div css={[css(gridStyle),
       serializeResponsiveColumns(responsiveColumns),
-      serializeResponsiveCss(responsiveStyle)]}
+      serializeResponsiveCss(cssx)]}
     >
       {children}
     </div>
