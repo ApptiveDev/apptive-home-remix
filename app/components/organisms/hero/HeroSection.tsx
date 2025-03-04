@@ -4,8 +4,6 @@ import Text from '@components/atoms/text/Text';
 import Button from '@components/atoms/button/Button';
 import type { ReactNode } from 'react';
 import backgroundImage from '@assets/images/hero-background.webp';
-import usePreloadBackground from '@/hooks/usePreloadBackground';
-import heroStyles from '@/components/organisms/hero/hero.module.css';
 import { getLandingKeyframes } from '@/utils';
 
 function HeroSection({ id }: { id?: string }) {
@@ -23,7 +21,6 @@ function HeroSection({ id }: { id?: string }) {
 }
 
 function HeroContainer({ children }: { children: ReactNode }) {
-  usePreloadBackground({ src: backgroundImage });
   return (
     <Container
       size={{ width: '100%', height: '600px' }}
@@ -49,7 +46,6 @@ function HeroText() {
           opacity: 0,
           animation: `${getLandingKeyframes(true)} 0.5s ease-in-out forwards 1s`,
         }}
-        className={heroStyles.heroText}
       >
         부산대학교 대표 IT 프로젝트 동아리
       </Heading.XSmall>
@@ -61,8 +57,8 @@ function HeroText() {
         }}
         cssx={{
           opacity: 0,
+          animation: `${getLandingKeyframes(true)} 0.5s ease-in-out forwards 0.5s`,
         }}
-        className={heroStyles.heroTitle}
       >
         APPTIVE
       </Text>
