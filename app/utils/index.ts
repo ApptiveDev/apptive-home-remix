@@ -39,12 +39,9 @@ export function serializeResponsiveCss(cssObject?: ResponsiveCSSObject | Seriali
   if(! cssObject) {
     return css``;
   }
-  if(cssObject.name) { // SerializedStyles check
-    return cssObject as SerializedStyles;
-  }
   cssObject = cssObject as ResponsiveCSSObject;
   const { xs, sm, md, lg, ...baseStyle } = cssObject as ResponsiveCSSObject;
-  const baseCss: CSSObject = css({ ...baseStyle });
+  const baseCss: CSSObject = { ...baseStyle };
   const ret: SerializedStyles[] = [];
   Object.entries(breakPoints).forEach(([key, value]) => {
     if(! (key in cssObject)) {
@@ -53,7 +50,7 @@ export function serializeResponsiveCss(cssObject?: ResponsiveCSSObject | Seriali
     const styleValue = cssObject[key];
     const style = css`
       @media (min-width: ${value}) {
-        ${css(styleValue)}
+        ${styleValue}
       }
     `;
     ret.push(style);
