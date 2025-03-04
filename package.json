@@ -9,7 +9,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest",
-    "test:ci": "vitest run"
+    "test:ci": "vitest run",
+    "ci": "tsc --noEmit && vitest run"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
