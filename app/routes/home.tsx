@@ -2,10 +2,11 @@ import Page from '@/components/templates/Page';
 import MainSection from '@/components/organisms/main/MainSection';
 import GallerySection from '@/components/organisms/gallery/GallerySection';
 import { ClientOnly } from 'remix-utils/client-only';
-import type { MetaFunction } from 'react-router';
+import type { LinksFunction, MetaFunction } from 'react-router';
 import HeroSection from '@components/organisms/hero/HeroSection';
 import ActivitySection from '@components/organisms/activity/ActivitySection';
 import { colors } from '@styles/colors';
+import heroBackgroundImage from '@assets/images/hero-background.webp';
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,6 +18,12 @@ export const meta: MetaFunction = () => {
     // { 'og:url': 'https://apptive.club' }
   ];
 };
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "preload", href: heroBackgroundImage, as: "image" },
+  ];
+}
 
 export default function Home() {
   return (
