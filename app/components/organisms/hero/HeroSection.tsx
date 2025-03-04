@@ -67,7 +67,7 @@ function HeroText() {
         APPTIVE
       </Text>
       <Button
-        variants="light-outlined"
+        variant="light-outlined"
         cssx={{
           marginTop: '15px',
           opacity: 0,

@@ -6,11 +6,11 @@ import { serializeResponsiveCss } from '@/utils';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: ReactNode;
   children?: ReactNode;
-  variants: ButtonTheme;
+  variant: ButtonTheme;
   cssx?: CSSObject;
 }
 
-function Button({ icon, children, variants, cssx, ...rest }: ButtonProps) {
+function Button({ icon, children, variant, cssx, ...rest }: ButtonProps) {
   const buttonStyle = css`
     display: flex;
     align-items: center;
@@ -18,16 +18,16 @@ function Button({ icon, children, variants, cssx, ...rest }: ButtonProps) {
     outline: none;
     padding: 10px 18px;
     border-radius: 100px;
-    color: ${variants === 'dark' ? colors.light.primary.main : colors.light.text.prominent};
-    border: ${getBorderStyle(variants)};
-    background-color: ${getBackgroundColor(variants)};
+    color: ${variant === 'dark' ? colors.light.primary.main : colors.light.text.prominent};
+    border: ${getBorderStyle(variant)};
+    background-color: ${getBackgroundColor(variant)};
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
 
     &:hover {
-      background-color: ${getHoverBackgroundColor(variants)};
-      color: ${getHoverColor(variants)};
-      border-color: ${getHoverBorderColor(variants)};
+      background-color: ${getHoverBackgroundColor(variant)};
+      color: ${getHoverColor(variant)};
+      border-color: ${getHoverBorderColor(variant)};
     }
   `;
 
