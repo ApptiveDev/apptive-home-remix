@@ -11,7 +11,7 @@ function Footer() {
     <Container
       size="full-width"
       justify="center"
-      style={{ backgroundColor: '#1B1B1B' }}
+      cssx={{ backgroundColor: '#1B1B1B' }}
     >
       <Container
         size={{ width: '100%', height: '320px' }}
@@ -23,8 +23,8 @@ function Footer() {
         <Container
           gap="12px"
           direction="column"
-          style={{ display: 'none' }}
-          responsiveStyle={{
+          cssx={{
+            display: 'none',
             sm: { display: 'flex' }, // xs 화면 이상에서는 숨김
           }}
         >
@@ -41,7 +41,7 @@ function Footer() {
           <Container
             gap="12px"
             direction="column"
-            responsiveStyle={{
+            cssx={{
               xs: { display: 'flex' }, // xs 화면 이상에서는 숨김
               sm: { display: 'none' }, // xs 화면 이상에서는 숨김
             }}
@@ -56,7 +56,7 @@ function Footer() {
           <a
             rel="stylesheet"
             href=""
-            style={{ textDecoration: 'underline', color: 'white' }}
+            css={{ textDecoration: 'underline', color: 'white' }}
           >
             <Container gap="5px">
               Notion
@@ -66,7 +66,7 @@ function Footer() {
           <a
             rel="stylesheet"
             href=""
-            style={{ textDecoration: 'underline', color: 'white' }}
+            css={{ textDecoration: 'underline', color: 'white' }}
           >
             <Container gap="5px">
               Discord
@@ -76,7 +76,7 @@ function Footer() {
           <a
             rel="stylesheet"
             href=""
-            style={{ textDecoration: 'underline', color: 'white' }}
+            css={{ textDecoration: 'underline', color: 'white' }}
           >
             <Container gap="5px">
               Instagram

@@ -13,6 +13,7 @@ function Header() {
     position: fixed;
     transition: all 0.15s ease-in;
     z-index: 1000;
+    font-family: "Pretendard Variable", sans-serif;
   `;
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -26,7 +27,7 @@ function Header() {
     <Container
       size="full-width"
       justify="center"
-      style={css(baseStyle, scrollHeaderStyle)}
+      cssx={css(baseStyle, scrollHeaderStyle)}
     >
       <Container
         size={{ width: '100%', height: '60px' }}
@@ -36,18 +37,17 @@ function Header() {
         padding="0 20px"
       >
         <ResponsiveLogo />
-        <Container gap="20px" responsiveStyle={{
+        <Container gap="20px" cssx={{
           sm: {
             gap: '49px',
           },
         }}
         >
-          <TextBody.Medium weight="bold" style={{ cursor:'pointer' }} onClick={() => scrollToSection('main-section')}>About</TextBody.Medium>
-          <TextBody.Medium weight="bold" style={{ cursor:'pointer' }} onClick={() => scrollToSection('activity-section')}>Activity</TextBody.Medium>
-          <TextBody.Medium weight="bold" style={{ cursor:'pointer' }} onClick={() => scrollToSection('gallery-section')}>Gallery</TextBody.Medium>
+          <TextBody.Medium weight="bold" cssx={{ cursor:'pointer' }} onClick={() => scrollToSection('main-section')}>About</TextBody.Medium>
+          <TextBody.Medium weight="bold" cssx={{ cursor:'pointer' }} onClick={() => scrollToSection('activity-section')}>Activity</TextBody.Medium>
+          <TextBody.Medium weight="bold" cssx={{ cursor:'pointer' }} onClick={() => scrollToSection('gallery-section')}>Gallery</TextBody.Medium>
         </Container>
       </Container>
-
     </Container>
   );
 }

@@ -20,10 +20,8 @@ const ActivityTimelineSection = ({ mode }: MainSectionProps) => {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: left;
     min-width: 120px;
-    padding: 0px 20px;
-    padding-top: 20px;
+    padding: 20px 20px 0;
     box-sizing: border-box;
   `;
 
@@ -129,7 +127,7 @@ const ActivityTimelineSection = ({ mode }: MainSectionProps) => {
     const initialIndex = getCurrentMonthIndex();
     setActiveIndex(initialIndex !== -1 ? initialIndex : 0);
   }, []);
-    
+
   return (
     <Wrapper>
       <TimelineContainer>

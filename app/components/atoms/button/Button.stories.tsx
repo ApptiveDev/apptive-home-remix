@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Button>;
 
 export const MainButton: Story = {
   args: {
-    theme: 'light-outlined',
+    variant: 'light-outlined',
     children: (
       <TextBody.Medium weight="bold">
         21기 모집 링크 바로가기
@@ -21,7 +21,7 @@ export const MainButton: Story = {
 };
 export const DarkButton: Story = {
   args: {
-    theme: 'dark',
+    variant: 'dark',
     children: (
       <TextBody.Medium weight="bold">
         21기 모집 링크 바로가기
@@ -30,7 +30,7 @@ export const DarkButton: Story = {
   },
 };export const LightButton: Story = {
   args: {
-    theme: 'light',
+    variant: 'light',
     children: (
       <TextBody.Medium weight="bold">
         21기 모집 링크 바로가기

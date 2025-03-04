@@ -1,14 +1,16 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
-import { css } from '@emotion/react';
+import { css, type CSSObject } from '@emotion/react';
 import { colors } from '@styles/colors';
+import { serializeResponsiveCss } from '@/utils';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: ReactNode;
   children?: ReactNode;
-  theme: ButtonTheme;
+  variant: ButtonTheme;
+  cssx?: CSSObject;
 }
 
-function Button({ icon, children, theme, ...rest }: ButtonProps) {
+function Button({ icon, children, variant, cssx, ...rest }: ButtonProps) {
   const buttonStyle = css`
     display: flex;
     align-items: center;
@@ -16,16 +18,16 @@ function Button({ icon, children, theme, ...rest }: ButtonProps) {
     outline: none;
     padding: 10px 18px;
     border-radius: 100px;
-    color: ${theme === 'dark' ? colors.light.primary.main : colors.light.text.prominent};
-    border: ${getBorderStyle(theme)};
-    background-color: ${getBackgroundColor(theme)};
+    color: ${variant === 'dark' ? colors.light.primary.main : colors.light.text.prominent};
+    border: ${getBorderStyle(variant)};
+    background-color: ${getBackgroundColor(variant)};
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
 
     &:hover {
-      background-color: ${getHoverBackgroundColor(theme)};
-      color: ${getHoverColor(theme)};
-      border-color: ${getHoverBorderColor(theme)};
+      background-color: ${getHoverBackgroundColor(variant)};
+      color: ${getHoverColor(variant)};
+      border-color: ${getHoverBorderColor(variant)};
     }
   `;
 
@@ -36,7 +38,7 @@ function Button({ icon, children, theme, ...rest }: ButtonProps) {
   `;
 
   return (
-    <button css={buttonStyle} {...rest}>
+    <button css={[buttonStyle, serializeResponsiveCss(cssx)]} {...rest}>
       {icon && <span css={iconStyle}>{icon}</span>}
       {children}
     </button>

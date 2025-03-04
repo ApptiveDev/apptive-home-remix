@@ -1,6 +1,6 @@
 import { css, type SerializedStyles } from '@emotion/react';
 import type { ImgHTMLAttributes } from 'react';
-import type { ResponsiveCSSObjects } from '@/types/styles';
+import type { ResponsiveCSSObject } from '@/types';
 import { serializeResponsiveCss } from '@/utils';
 
 type AspectRatio = '1:1' | '4:3' | '16:9' | '21:9';
@@ -9,16 +9,14 @@ interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
   aspectRatio?: AspectRatio;
-  cssStyle?: SerializedStyles;
-  responsiveStyle?: ResponsiveCSSObjects;
+  cssx?: ResponsiveCSSObject;
 }
 
 function Image({
   src,
   alt,
   aspectRatio,
-  cssStyle,
-  responsiveStyle,
+  cssx,
   ...rest
 }: ImageProps) {
   const getAspectRatioStyle = (ratio: AspectRatio): SerializedStyles => {
@@ -50,13 +48,10 @@ function Image({
   const imageStyle = css`
     max-width: 100%;
     height: auto;
-  ;`;
-
-  const responsiveCss = serializeResponsiveCss(responsiveStyle);
-
+  `;
 
   return (
-    <div css={[aspectRatio && getAspectRatioStyle(aspectRatio), cssStyle, responsiveCss]}>
+    <div css={[aspectRatio && getAspectRatioStyle(aspectRatio), serializeResponsiveCss(cssx)]}>
       <img
         src={src}
         alt={alt}

@@ -1,5 +1,4 @@
 import { Heading } from '@/components/atoms/text/TextFactory';
-import IntroText from '@/components/molecules/IntroText';
 import styled from '@emotion/styled';
 import { colors } from '@/styles/colors';
 import { breakPoints } from '@/styles/breakpoints';
@@ -11,6 +10,7 @@ import { MAX_CONTENT_WIDTH } from '@styles/sizes';
 import useIntersectionSlideEffect from '@/hooks/useIntersectionSlideEffect';
 import YearlySection from '@components/organisms/main/YearlySection';
 import { css } from '@emotion/react';
+import IntroText from '@components/organisms/main/IntroText';
 
 interface MainSectionProps {
   id?: string;
@@ -38,12 +38,12 @@ const MainSection = ({ id, mode }: MainSectionProps) => {
   return (
     <section id={id}>
       <Container
-        style={mainContainerStyle}
+        cssx={mainContainerStyle}
         align="center"
         justify="center"
         direction="column"
       >
-        <TextBox css={{ opacity: 0 }} ref={introTitleRef}>
+        <TextBox css  ={{ opacity: 0 }} ref={introTitleRef}>
           <Heading.XLarge color={colorScheme.text.prominent}>
             What is Apptive?
           </Heading.XLarge>
@@ -80,6 +80,19 @@ const MainSection = ({ id, mode }: MainSectionProps) => {
     </section>
   );
 };
+
+function MainTitleContainer({ children }: { children: ReactNode }) {
+  return (
+    <Container
+      direction="column"
+      gap="20px"
+      maxWidth={MAX_CONTENT_WIDTH}
+      size="full-width"
+    >
+      {children}
+    </Container>
+  );
+}
 
 const Section = styled.div`
     display: flex;
@@ -125,17 +138,5 @@ const SectionReversed = styled(Section)`
      flex-direction: column-reverse;
   }
 `;
-function MainTitleContainer({ children }: { children: ReactNode }) {
-  return (
-    <Container
-      direction="column"
-      gap="20px"
-      maxWidth={MAX_CONTENT_WIDTH}
-      size="full-width"
-    >
-      {children}
-    </Container>
-  );
-}
 
 export default MainSection;

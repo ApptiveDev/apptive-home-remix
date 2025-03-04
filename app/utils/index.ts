@@ -1,10 +1,13 @@
-import { css, keyframes, type SerializedStyles } from '@emotion/react';
+import {
+  css,
+  type CSSObject,
+  keyframes,
+  type SerializedStyles,
+} from '@emotion/react';
 import { breakPoints } from '@styles/breakpoints';
 import type {
-  ResponsiveColumns,
-  ResponsiveCSSObjects,
-  ScreenSize,
-} from '@/types/styles';
+  ResponsiveCSSObject,
+} from '@/types';
 
 export function getLandingKeyframesArray(reverse: boolean = false, fromY: string = '20px') {
   return [
@@ -32,41 +35,25 @@ export function getLandingKeyframes(reverse: boolean = false, fromY: string = '2
   `;
 }
 
-export function serializeResponsiveCss(sizes?: ResponsiveCSSObjects): SerializedStyles {
-  if (! sizes) {
+export function serializeResponsiveCss(cssObject?: ResponsiveCSSObject | SerializedStyles): SerializedStyles {
+  if(! cssObject) {
     return css``;
   }
-
+  cssObject = cssObject as ResponsiveCSSObject;
+  const { xs, sm, md, lg, ...baseStyle } = cssObject as ResponsiveCSSObject;
+  const baseCss: CSSObject = { ...baseStyle };
   const ret: SerializedStyles[] = [];
-  Object.entries(sizes).forEach(([sizeKey, cssObject ]) => {
-    const key = sizeKey as ScreenSize;
+  Object.entries(breakPoints).forEach(([key, value]) => {
+    if(! (key in cssObject)) {
+      return;
+    }
+    const styleValue = cssObject[key];
     const style = css`
-      @media (min-width: ${breakPoints[key]}) {
-        ${css(cssObject)} 
+      @media (min-width: ${value}) {
+        ${styleValue}
       }
     `;
     ret.push(style);
   });
-
-  return css(ret);
-}
-
-export function serializeResponsiveColumns(responsiveColumns?: ResponsiveColumns): SerializedStyles {
-  if (!responsiveColumns) {
-    return css``;
-  }
-
-  const ret: SerializedStyles[] = [];
-  Object.entries(responsiveColumns).forEach(([sizeKey, columns]) => {
-    const key = sizeKey as ScreenSize;
-    const colCss = typeof columns === 'number' ? `repeat(${columns}, 1fr)` : columns;
-    const style = css`
-      @media (min-width: ${breakPoints[key]}) {
-        grid-template-columns: ${colCss};
-      }
-    `;
-    ret.push(style);
-  });
-
-  return css(ret);
+  return css(baseCss, ...ret);
 }

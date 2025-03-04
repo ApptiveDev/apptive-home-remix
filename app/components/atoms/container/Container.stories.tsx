@@ -103,12 +103,7 @@ export const ResponsiveLayout: Story = {
     justify: 'center',
     align: 'center',
     gap: 20,
-    style: {
-      border: '1px solid #ccc',
-      padding: '20px',
-      minHeight: '400px',
-    },
-    responsiveStyle: {
+    cssx: {
       sm: { padding: '10px' },
       md: { padding: '20px' },
       lg: { padding: '30px' },

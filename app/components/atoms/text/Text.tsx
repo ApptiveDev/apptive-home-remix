@@ -1,34 +1,43 @@
-import styled from '@emotion/styled';
-import type { FontWeight, ScreenSize } from '@/types/styles';
-import type { TextProps } from '@/types/props';
+import type { FontWeight, ScreenSize } from '@/types';
 import { breakPoints } from '@styles/breakpoints';
+import { type HTMLAttributes, type ReactNode } from 'react';
+import { css, type CSSObject, jsx } from '@emotion/react';
+import { serializeResponsiveCss } from '@/utils';
 
-function Text({ children, weight, responsiveSize, as = 'p', color, ...rest }: TextProps) {
-  const cssWeight = convertWeightToCss(weight);
-  return (
-    <ResponsiveText
-      as={as}
-      weight={cssWeight}
-      responsiveSize={responsiveSize}
-      color={color}
-      {...rest}
-    >
-      {children}
-    </ResponsiveText>
-  );
+export interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
+  children?: ReactNode;
+  weight?: FontWeight;
+  responsiveSize?: { [key in ScreenSize]?: string };
+  defaultSize?: string;
+  color?: string;
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+  cssx?: CSSObject;
 }
 
-const ResponsiveText = styled.p<TextProps>`
-  font-weight: ${(props: TextProps) => props.weight};
-  font-size: ${(props: TextProps) => props.defaultSize};
-  color: ${(props: TextProps) => props.color};
-  ${(props: TextProps) =>
-    props.responsiveSize && Object.entries(props.responsiveSize).map(([breakpoint, value]) => `
-      @media (min-width: ${breakPoints[breakpoint as ScreenSize]}) {
-        font-size: ${value};
-      }
-  `).join('')}
-`;
+function Text({ children, weight, defaultSize, responsiveSize, as = 'p', color, cssx, ...rest }: TextProps) {
+  const cssWeight = convertWeightToCss(weight);
+  const textStyle: CSSObject = {
+    fontWeight: cssWeight,
+    fontSize: defaultSize,
+    color,
+  }
+
+  return jsx(as, {
+    css: css([textStyle, serializeResponsiveSize(responsiveSize), serializeResponsiveCss(cssx)]),
+    ...rest,
+  }, children);
+}
+function serializeResponsiveSize(responsiveSize?: { [key in ScreenSize]?: string }) {
+  if(! responsiveSize){
+    return css``;
+  }
+  const ret = Object.entries(responsiveSize).map(([breakpoint, value]) => `
+    @media (min-width: ${breakPoints[breakpoint as ScreenSize]}) {
+      font-size: ${value};
+    }
+  `);
+  return css(...ret);
+}
 
 function convertWeightToCss(weight?: FontWeight) {
   if (!weight) {

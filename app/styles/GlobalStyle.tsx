@@ -20,6 +20,10 @@ const baseStyle = css`
   ::-webkit-scrollbar-track {
     background: rgba(255, 255, 255);
   }
+  
+  body section {
+    font-family: "Pretendard Variable", sans-serif;
+  }
 
 `;
 

@@ -3,18 +3,19 @@ import { MAX_CONTENT_WIDTH } from '@styles/sizes';
 import { Heading } from '@components/atoms/text/TextFactory';
 import { colors } from '@styles/colors';
 import { type ReactNode } from 'react';
-import ActivityCardSection from '@components/organisms/main/activity/ActivityCardSection';
 import ActivityTimelineSection from './ActivityTimelineSection';
+import ActivityCardSection
+  from '@components/organisms/activity/ActivityCardSection';
 
 function ActivitySection({ id }: { id?: string }) {
   return (
     <section id={id}>
       <Container
-      size="full-width"
-      justify="center"
-      style={{
-        backgroundColor: colors.light.background.darken,
-      }}
+        size="full-width"
+        justify="center"
+        cssx={{
+          backgroundColor: colors.light.background.darken,
+        }}
       >
         <ActivityContainer>
           <Container size="full-width" justify="flex-end">
@@ -43,10 +44,8 @@ function ActivityContainer({ children }: ActivityContainerProps) {
       maxWidth={MAX_CONTENT_WIDTH}
       direction="column"
       padding="20px"
-      style={{
+      cssx={{
         padding: '50px 20px',
-      }}
-      responsiveStyle={{
         lg: { padding: '100px 20px' },
       }}
     >

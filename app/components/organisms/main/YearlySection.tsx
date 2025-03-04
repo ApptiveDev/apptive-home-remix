@@ -1,9 +1,3 @@
-import {
-  ExplainText,
-  YearText,
-  YearTextBox,
-} from '@components/molecules/YearText';
-import yearlyContent from '@constants/yearlyContent';
 import Container from '@components/atoms/container/Container';
 import { css } from '@emotion/react';
 import { breakPoints } from '@styles/breakpoints';
@@ -12,6 +6,12 @@ import { colors } from '@styles/colors';
 import { Heading } from '@components/atoms/text/TextFactory';
 import { MAX_CONTENT_WIDTH } from '@styles/sizes';
 import useIntersectionSlideEffect from '@/hooks/useIntersectionSlideEffect';
+import {
+  ExplainText,
+  YearText,
+  YearTextBox,
+} from '@components/organisms/main/YearText';
+import yearlyContent from '@components/organisms/main/yearlyContent';
 
 interface YearlySectionProps {
   mode: 'light' | 'dark';
@@ -36,7 +36,7 @@ function YearlySection({ mode }: YearlySectionProps) {
 
   return (
     <>
-      <Container size="full-width" maxWidth={MAX_CONTENT_WIDTH} style={textboxStyle} ref={titleRef}>
+      <Container size="full-width" maxWidth={MAX_CONTENT_WIDTH} cssx={textboxStyle} ref={titleRef}>
         <Heading.XLarge color={colors[mode].text.prominent}>
           Years of Apptive
         </Heading.XLarge>
@@ -100,7 +100,7 @@ const SliderContainer =
       }
     `;
     return (
-    <Container style={containerStyle} ref={ref}>
+    <Container cssx={containerStyle} ref={ref}>
       {children}
     </Container>
     );
@@ -125,7 +125,7 @@ function SliderWrapper({ mode, children }: YearlySectionProps & { children?: Rea
       padding: 0 10px;
     }`;
   return (
-    <Container padding="0 45px" size="full-width" style={containerStyle}>
+    <Container padding="0 45px" size="full-width" cssx={containerStyle}>
       {children}
     </Container>
   );

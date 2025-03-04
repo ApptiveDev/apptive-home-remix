@@ -25,9 +25,9 @@ function ActivityCard({ title, order, icon, paragraph }: ActivityCardProps) {
   `;
 
   return (
-    <Container size="full-width" style={cardStyle}>
+    <Container size="full-width" cssx={cardStyle}>
       <Container
-        responsiveStyle={{
+        cssx={{
           sm: {
             padding: '48px 52px',
           },
@@ -41,8 +41,8 @@ function ActivityCard({ title, order, icon, paragraph }: ActivityCardProps) {
             <span css={orderStyle}>{order < 10 ? `0${order}` : order}</span>
             {title}
           </Paragraph.Large>
-          <Paragraph.Small style={{
-            lineHeight: '1.2rem',
+          <Paragraph.Small cssx={{
+            lineHeight: '1.2',
           }}
           >
             {paragraph}
@@ -52,7 +52,7 @@ function ActivityCard({ title, order, icon, paragraph }: ActivityCardProps) {
           size={{ width: '80px', height: '80px' }}
           justify="center"
           align="center"
-          responsiveStyle={{
+          cssx={{
             sm: {
               height: '100px',
             },

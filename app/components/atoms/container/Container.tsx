@@ -1,9 +1,8 @@
-import { forwardRef, type ReactNode } from 'react';
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import type { CSSObject } from '@emotion/react';
-import type { ResponsiveCSSObjects } from '@/types/styles';
 import { serializeResponsiveCss } from '@/utils';
 
-interface ContainerProps {
+interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   direction?: 'row' | 'column';
   justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
@@ -12,8 +11,7 @@ interface ContainerProps {
   maxWidth?: string;
   padding?: string;
   gap?: number | string;
-  style?: CSSObject;
-  responsiveStyle?: ResponsiveCSSObjects;
+  cssx?: CSSObject;
 }
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>((
@@ -26,8 +24,8 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>((
     maxWidth,
     padding,
     gap = 0,
-    style,
-    responsiveStyle,
+    cssx: cssStyle,
+    ...rest
   }: ContainerProps,
   ref,
 ) => {
@@ -45,7 +43,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>((
   };
 
   return (
-    <div ref={ref} css={[containerStyle, style, serializeResponsiveCss(responsiveStyle)]}>
+    <div ref={ref} css={[containerStyle, serializeResponsiveCss(cssStyle)]} {...rest}>
       {children}
     </div>
   );
